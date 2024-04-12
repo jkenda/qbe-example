@@ -1,10 +1,13 @@
+CC_OPTS = -pipe -nostdlib -nodefaultlibs -xassembler -g0
+
 all: example
 
 example: example.o syscalls.o
 	ld -o example example.o syscalls.o
+	strip example
 
 example.o: qbe/qbe example.ssa
-	cat example.ssa | qbe/qbe | cc -c -o example.o -pipe -nostdlib -xassembler -s -
+	cat example.ssa | qbe/qbe | cc -c -o example.o $(CC_OPTS) -
 
 syscalls.o: syscalls.s
 	cc -c -o syscalls.o syscalls.s

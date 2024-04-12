@@ -1,10 +1,12 @@
+.equ SYS_write, 1
+.equ SYS_exit , 60
+
 .text
 exit:
     pushq %rbp
     movq %rsp, %rbp
 
-    mov %rdi, %rdi
-    mov $60, %rax
+    mov $SYS_exit, %rax
 
     syscall
     
@@ -16,11 +18,7 @@ write:
     push %rbp
     mov %rsp, %rbp
 
-    mov %rsi, %rdx # arg 2
-    mov %rdi, %rsi # arg 1
-
-    mov $1, %rax
-    mov $1, %rdi
+    mov $SYS_write, %rax
 
     syscall
 

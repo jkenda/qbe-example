@@ -7,9 +7,8 @@ function w $add(w %a, w %b) {
 export function w $main() {
 @start
     %r =w call $add(w 1, w 1)
-    call $write(l $fmt, l 14)
+    call $write(l 1, l $fmt, l 14)
     ret 0
 }
 
 data $fmt = { b "Hello, world!\n" }
-
