@@ -4,10 +4,15 @@ function w $add(w %a, w %b) {
     ret %c
 }
 
-export function w $main() {
+export function w $main(l %c, l %argv) {
 @start
-    %r =w call $add(w 1, w 1)
+@loop
+    jnz %c, @continue, @end
+@continue
     call $write(l 1, l $fmt, l 14)
+    %c =l sub %c, 1
+    jmp @loop
+@end
     ret 0
 }
 
