@@ -7,21 +7,18 @@ _start:
     bl _main
     b _exit
 
-.macro wscall num
-    mov x16, \num
+.macro def_syscall name num
+.globl _\name
+_\name:
+    mov x16, #\num
     svc #0x80
 
     ret
 .endm
 
-.globl _read
-.globl _write
-.globl _exit
 
-_read:  wscall #READ
-_write: wscall #WRITE
-_exit:  wscall #EXIT
-
-.equ EXIT,  1
-.equ READ,  3
-.equ WRITE, 4
+def_syscall read,   1
+// ...
+def_syscall write,  3
+def_syscall exit,   4
+// ...

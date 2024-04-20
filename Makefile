@@ -1,5 +1,5 @@
 PIPE_OPTS=-xassembler
-CC_OPTS=-nostdlib -ffreestanding -pipe -Os
+CC_OPTS=-nostdlib -pipe -Os
 LD_OPTS=-static -T linker.ld
 LD_OPTS_MACOS=-arch arm64 -platform_version macos 11.0 11.0
 all: amd64_linux arm64_apple
