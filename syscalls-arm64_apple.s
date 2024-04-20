@@ -5,8 +5,6 @@ _start:
     add x1, sp, #8
 
     bl _main
-
-    mov x0, x0
     b _exit
 
 .macro wscall num
