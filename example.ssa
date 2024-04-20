@@ -16,4 +16,4 @@ export function w $main(l %c, l %argv) {
     ret 0
 }
 
-data $fmt = { b "Hello, world!\n" }
+data $fmt = { b "Hello, world!\n\0" }

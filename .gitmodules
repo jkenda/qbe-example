@@ -1,3 +1,6 @@
 [submodule "qbe"]
 	path = qbe
 	url = git://c9x.me/qbe.git
+[submodule "ELFkickers"]
+	path = ELFkickers
+	url = git@github.com:BR903/ELFkickers.git
