@@ -27,6 +27,6 @@ _write:
 _exit:
     wscall =EXIT
 
-.equ READ,  0x2000003
-.equ WRITE, 0x2000004
-.equ EXIT,  0x2000001
+.equ READ,  63
+.equ WRITE, 64
+.equ EXIT,  93
