@@ -1,7 +1,7 @@
 PIPE_OPTS=-xassembler
 CC_OPTS=-nostdlib -ffreestanding -pipe -Os
 LD_OPTS=-static -T linker.ld
-LD_OPTS_MACOS=-arch arm64 -platform_version macos 11.0 11.0 -o example
+LD_OPTS_MACOS=-arch arm64 -platform_version macos 11.0 11.0
 all: amd64_linux arm64_apple
 
 
@@ -10,7 +10,7 @@ amd64_linux: example-amd64_linux.o syscalls-amd64_linux.o linker.ld ELFkickers/b
 	objcopy -S $@ # optional, reduces binary size
 	ELFkickers/bin/sstrip $@ # optional, reduces binary size
 
-arm64_apple: example-arm64_apple.o syscalls-arm64_apple.o linker.ld
+arm64_apple: example-arm64_apple.o syscalls-arm64_apple.o
 	ld64.lld $(LD_OPTS_MACOS) -o $@ example-$@.o syscalls-$@.o
 
 
