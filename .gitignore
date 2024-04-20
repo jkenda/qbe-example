@@ -1,2 +1,3 @@
-example
+amd64_linux
+arm64_apple
 *.o
