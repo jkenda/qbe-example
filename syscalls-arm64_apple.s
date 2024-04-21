@@ -21,8 +21,8 @@ _\name:
 
 // SYSCALL TABLE
 
-def_scall   read,   1
+def_scall   exit,  1
 // ...
-def_scall   write,  3
-def_scall   exit,   4
+def_scall   read,  3
+def_scall   write, 4
 // ...
