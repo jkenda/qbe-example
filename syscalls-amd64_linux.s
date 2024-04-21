@@ -1,3 +1,5 @@
+// HEADER
+
 .text
 .globl _start
 _start:
@@ -10,7 +12,7 @@ _start:
     mov %rax, %rdi
     jmp exit
 
-.macro def_syscall name num
+.macro def_scall name num
 .globl \name
 \name:
     push %rcx
@@ -26,8 +28,10 @@ _start:
 .endm
 
 
-def_syscall read,   0
-def_syscall write,  1
+// SYSCALL TABLE
+
+def_scall   read,   0
+def_scall   write,  1
 // ...
-def_syscall exit,   60
+def_scall   exit,   60
 // ...

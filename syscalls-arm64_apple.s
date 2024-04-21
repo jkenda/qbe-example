@@ -1,3 +1,5 @@
+// HEADER
+
 .section __TEXT,__text
 .globl _start
 _start:
@@ -7,7 +9,7 @@ _start:
     bl _main
     b _exit
 
-.macro def_syscall name num
+.macro def_scall name num
 .globl _\name
 _\name:
     mov x16, #\num
@@ -17,8 +19,10 @@ _\name:
 .endm
 
 
-def_syscall read,   1
+// SYSCALL TABLE
+
+def_scall   read,   1
 // ...
-def_syscall write,  3
-def_syscall exit,   4
+def_scall   write,  3
+def_scall   exit,   4
 // ...
