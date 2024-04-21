@@ -1,31 +1,5 @@
-// HEADER
-
-.text
-.globl _start
-_start:
-    # get argc, argv
-    mov 0(%rsp), %rdi
-    lea 8(%rsp), %rsi
-
-    call main
-
-    mov %rax, %rdi
-    jmp exit
-
-.macro def_scall name num
-.globl \name
-\name:
-    push %rcx
-    push %r11
-
-    mov $\num, %rax
-    syscall
-
-    pop %r11
-    pop %rcx
-
-    ret
-.endm
+.equ main_proc, main
+.equ exit_proc, exit
 
 
 // SYSCALL TABLE

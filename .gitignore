@@ -1,3 +1,5 @@
 amd64_linux
+amd64_apple
+arm64_linux
 arm64_apple
 *.o
