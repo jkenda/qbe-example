@@ -1,5 +1,13 @@
 // HEADER
 
+#ifdef APPLE
+    #define scall_reg x16
+    #define scall_int #0x80
+#else
+    #define scall_reg x8
+    #define scall_int #0x0
+#endif
+
 .text
 .globl _start
 _start:
@@ -12,8 +20,8 @@ _start:
 .macro def_scall name num
 .globl \name
 \name:
-    mov x16, #\num
-    svc #scall_int
+    mov scall_reg, \num
+    svc scall_int
 
     ret
 .endm

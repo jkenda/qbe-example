@@ -1,4 +1,4 @@
-PIPE_OPTS=-xassembler
+PIPE_OPTS=-xassembler-with-cpp
 CC_OPTS=-nostdlib -pipe -Os
 LD_OPTS=-static -T linker.ld
 LD_OPTS_MACOS_AMD=-arch x86_64 -platform_version macos 11.0 11.0
@@ -50,7 +50,7 @@ syscalls-arm64_linux.o: syscalls-arm64-header.s syscalls-arm64_linux.s
 
 syscalls-arm64_apple.o: syscalls-arm64-header.s syscalls-arm64_apple.s
 	cat syscalls-arm64-header.s syscalls-arm64_apple.s \
-	| clang -c -target arm64-apple-darwin $(PIPE_OPTS) $(CC_OPTS) -o $@ -
+	| clang -c -target arm64-apple-darwin -DAPPLE $(PIPE_OPTS) $(CC_OPTS) -o $@ -
 
 
 qbe/qbe: qbe/*.c qbe/*.h

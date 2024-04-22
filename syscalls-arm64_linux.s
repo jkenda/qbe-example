@@ -1,4 +1,3 @@
-.equ scall_int, 0x0
 .equ main_proc, main
 .equ exit_proc, exit
 
