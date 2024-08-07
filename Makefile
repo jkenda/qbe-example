@@ -9,7 +9,7 @@ LD_OPTS_LINUX_RV=--nostdlib
 all: amd64_linux amd64_apple arm64_linux arm64_apple rv64_linux
 
 
-amd64_linux: example-amd64_linux.o syscalls-amd64_linux.o linker.ld ELFkickers/bin/sstrip
+amd64_linux: example-amd64_linux.o syscalls-amd64_linux.o ELFkickers/bin/sstrip
 	ld.lld $(LD_OPTS_LINUX_AMD) -o $@ example-$@.o syscalls-$@.o
 	objcopy -S $@ # optional, reduces binary size
 	ELFkickers/bin/sstrip $@ # optional, reduces binary size
