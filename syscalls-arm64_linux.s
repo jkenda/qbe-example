@@ -1,6 +1,7 @@
 .equ main_proc, main
 .equ exit_proc, exit
 
+
 // SYSCALL TABLE
 
 // ...

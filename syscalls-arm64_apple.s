@@ -1,6 +1,7 @@
 .equ main_proc, _main
 .equ exit_proc, _exit
 
+
 // SYSCALL TABLE
 
 def_scall   _exit,  1

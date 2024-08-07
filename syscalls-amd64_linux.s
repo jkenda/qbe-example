@@ -4,6 +4,7 @@
 
 // SYSCALL TABLE
 
+// ...
 def_scall   read,   0
 def_scall   write,  1
 // ...
